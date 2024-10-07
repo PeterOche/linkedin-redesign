@@ -216,14 +216,14 @@ export default function Navbar() {
               </div>
 
               {/* Profile and other options */}
-              <div className="absolute inset-y-0 right-0 hidden sm:flex items-center space-x-4 pr-8 sm:static sm:inset-auto sm:ml-6  h-full border-r-[1px] border-[#F4F4F4]">
+              <div className="absolute inset-y-0 right-0 hidden sm:flex sm:flex-1 items-center space-x-4 pr-8 sm:static sm:inset-auto sm:ml-6  h-full border-r-[1px] border-[#F4F4F4]">
                 {/* Profile dropdown */}
                 <Menu as="div" className="relative">
                   <div>
                     <MenuButton className="flex rounded-full bg-white text-sm focus:outline-none">
                       <span className="sr-only">Open user menu</span>
                       <img
-                        className="h-8 w-8 rounded-full"
+                        className="h-[42px] w-[42px] rounded-full"
                         src={user.profileImage}
                         alt=""
                       />
@@ -275,7 +275,7 @@ export default function Navbar() {
                   </div>
                   <div className="flex space-x-2">
                     <p className="text-[12px]">367 views today</p>
-                    <p className="text-[12px]">+32</p>
+                    <p className="text-[12px] text-[#02B033]">+32</p>
                   </div>
                 </div>
               </div>

@@ -14,7 +14,10 @@ export const generateUsers = (num = 10) => {
       profileImage: `https://randomuser.me/api/portraits/men/${faker.number.int(
         { min: 1, max: 99 }
       )}.jpg`,
-      occupation: faker.person.jobTitle(),
+      occupation: {
+        title: faker.person.jobTitle(),
+        description: faker.lorem.paragraph(2),
+      },
       headline: faker.company.catchPhrase(),
       location: `${faker.location.city()}, ${faker.location.country()}`,
       connections: faker.number.int({ min: 50, max: 500 }),
