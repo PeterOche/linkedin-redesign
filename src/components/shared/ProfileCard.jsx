@@ -61,13 +61,13 @@ const ProfileCard = ({ user }) => {
           {/* Offset to avoid overlapping the profile image */}
           <div className=" md:flex items-center justify-between">
             <div className="flex items-center">
-              <h2 className="text-[18px] font-bold text-[#181818] mr-2">
+              <h2 className="text-[18px] leading-[17px] font-bold text-[#181818] mr-2">
                 {user.name}
               </h2>
               <img src={logoIcon} alt="Logo" className="w-[16px] h-[16px]" />{" "}
               {/* Logo */}
             </div>
-            <p className="text-gray-600 text-sm flex items-center">
+            <p className="text-[#181818] text-[12px] flex items-center">
               <img
                 src={planeLogo}
                 className="w-[12.67px] h-[12.67px] mr-[8px]"
@@ -76,7 +76,7 @@ const ProfileCard = ({ user }) => {
             </p>
           </div>
 
-          <p className="text-gray-600 text-[14px] max-w-lg leading-[21px]">
+          <p className="text-[#181818] text-[14px] max-w-lg leading-[21px]">
             {user.occupation.title}, {user.occupation.description}
           </p>
           <div className="py-6 flex space-x-4 items-center bg-white overflow-clip">

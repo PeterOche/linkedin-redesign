@@ -1,6 +1,6 @@
 import { useContext } from "react";
-import BlankTab from "./BlankTab";
-import TabComponent from "./TabsComponent";
+import BlankTab from "../shared/BlankTab";
+import TabComponent from "../shared/TabsComponent";
 
 import ProfileItems from "./ProfileItems";
 

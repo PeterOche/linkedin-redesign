@@ -1,6 +1,16 @@
 // ../data/generateUsers.js
 import { faker } from "@faker-js/faker";
 
+const companyLogos = {
+  Facebook: "https://logo.clearbit.com/facebook.com",
+  Google: "https://logo.clearbit.com/google.com",
+  Microsoft: "https://logo.clearbit.com/microsoft.com",
+  Upwork: "https://logo.clearbit.com/upwork.com",
+  "Self Employed": "https://picsum.photos/50/50", // placeholder image for self-employed
+};
+
+const schoolLogo = "https://logo.clearbit.com/university.com";
+
 export const generateUsers = (num = 10) => {
   const aboutTexts = [
     "I'm more experienced in eCommerce web projects and mobile banking apps, but also like to work with creative projects, such as landing pages or unusual corporate websites. ",
@@ -23,6 +33,8 @@ export const generateUsers = (num = 10) => {
     "A dedicated professional with expertise in project management and leadership",
   ];
 
+  const companies = ["Facebook", "Google", "Microsoft"];
+
   const skills = [
     "User experience (UX)",
     "User interface (UI)",
@@ -30,6 +42,46 @@ export const generateUsers = (num = 10) => {
     "Mobile Developement",
     "Frontend Dev",
     "Nature Photography",
+  ];
+
+  const jobTitles = [
+    "UX/UI designer",
+    "Frontend Developer",
+    "Project Manager",
+    "Marketing Specialist",
+  ];
+
+  const schools = [
+    "Harvard University",
+    "Stanford University",
+    "Massachusetts Institute of Technology",
+    "University of Cambridge",
+    "Oxford University",
+    "California Institute of Technology",
+    "Princeton University",
+    "Yale University",
+    "Columbia University",
+  ];
+
+  const degrees = [
+    "Bachelor's degree",
+    "Master's degree",
+    "Ph.D.",
+    "Associate's degree",
+    "Diploma",
+  ];
+
+  const fieldsOfStudy = [
+    "Computer Science",
+    "Business Administration",
+    "Electrical Engineering",
+    "Information Technology",
+    "Mechanical Engineering",
+    "Economics",
+    "Mathematics",
+    "Physics",
+    "Design",
+    "Fine Arts",
   ];
 
   return Array.from({ length: num }, () => {
@@ -61,8 +113,12 @@ export const generateUsers = (num = 10) => {
         })}`,
       })),
       education: {
-        school: faker.company.name(),
-        degree: faker.person.jobType(),
+        school: faker.helpers.arrayElement(schools),
+        degree: faker.helpers.arrayElement(degrees),
+        description: faker.lorem.sentences(2),
+        course: faker.helpers.arrayElement(fieldsOfStudy),
+        logo: schoolLogo,
+        location: `${faker.location.city()}, ${faker.location.country()}`,
         dates: `${faker.date.past(10).getFullYear()} - ${faker.date
           .recent(1)
           .getFullYear()}`,
@@ -72,7 +128,6 @@ export const generateUsers = (num = 10) => {
         () => ({
           skill: faker.helpers.arrayElement(skills), // Random skill name
           endorsementsCount: faker.number.int({ min: 3, max: 10 }), // Random number of endorsements
-          // Random number of endorsers for each skill (between 1 and 12 endorsers)
           endorsedBy: Array.from(
             { length: faker.number.int({ min: 1, max: 12 }) },
             () => ({
@@ -84,6 +139,25 @@ export const generateUsers = (num = 10) => {
           ),
         })
       ),
+      experience: Array.from({ length: 2 }, () => {
+        const company = faker.helpers.arrayElement(companies);
+        return {
+          title: faker.helpers.arrayElement(jobTitles),
+          company: company,
+          location: `${faker.location.city()}, ${faker.location.country()}`,
+          dates: `${faker.date.past(10).toLocaleString("default", {
+            month: "short",
+            year: "numeric",
+          })} — Present`, // Example for current jobs
+          description: faker.lorem.sentences(2),
+          logo:
+            companyLogos[company] ||
+            `https://picsum.photos/50/50?random=${faker.number.int({
+              min: 1,
+              max: 1000,
+            })}`, // Default if no logo
+        };
+      }),
       email,
       about: faker.helpers.arrayElement(aboutTexts),
       sex,

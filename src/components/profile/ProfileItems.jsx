@@ -1,8 +1,10 @@
 import { useContext } from "react";
 import AppContext from "../../AppState";
-import AboutCard from "./AboutCard";
-import ProjectsCard from "./ProjectsCard";
-import SkillsCard from "./SkillsCard";
+import AboutCard from "../shared/AboutCard";
+import ProjectsCard from "../shared/ProjectsCard";
+import SkillsCard from "../shared/SkillsCard";
+import ExperienceCard from "../shared/ExperienceCard";
+import EducationCard from "../shared/EducationCard";
 
 const ProfileItems = () => {
   const { state } = useContext(AppContext);
@@ -12,6 +14,8 @@ const ProfileItems = () => {
       <AboutCard about={user.about} />
       <ProjectsCard />
       <SkillsCard />
+      <ExperienceCard />
+      <EducationCard />
     </div>
   );
 };

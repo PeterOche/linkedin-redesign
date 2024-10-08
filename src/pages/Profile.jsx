@@ -3,7 +3,7 @@ import AppContext from "../AppState";
 import ProfileCard from "../components/shared/ProfileCard";
 import StatCard from "../components/shared/StatCard";
 import VisitorCard from "../components/shared/VisitorCard";
-import ProfileTab from "../components/shared/ProfileTab";
+import ProfileTab from "../components/profile/ProfileTab";
 
 const Profile = () => {
   const { state } = useContext(AppContext);
@@ -17,6 +17,7 @@ const Profile = () => {
       </div>
       <div className="">
         <StatCard />
+        <VisitorCard visitors={visitors} />
         <VisitorCard visitors={visitors} />
       </div>
 
