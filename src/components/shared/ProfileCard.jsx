@@ -1,5 +1,3 @@
-import React from "react";
-
 // Assuming the background image, logo, and other assets are imported
 import backgroundImage from "../../assets/background-image.svg";
 import logoIcon from "../../assets/logo-icon.svg";
@@ -8,10 +6,11 @@ import moreIcon from "../../assets/more-vertical.svg"; // Vertical dots (More op
 import planeLogo from "../../assets/planeLogo.svg";
 import uploadIcon from "../../assets/upload.svg"; // Share icon
 import BlueButton from "./BlueButton";
+import TransparentBtn from "./TransparentBtn";
 
 const ProfileCard = ({ user }) => {
   return (
-    <div className="relative bg-white shadow-md rounded-lg overflow-hidden mb-4">
+    <div className="relative bg-white shadow rounded overflow-hidden  mb-4">
       {/* Background Image */}
       <div className="relative w-full h-48">
         <img
@@ -21,7 +20,7 @@ const ProfileCard = ({ user }) => {
         />
         {/* Share Icon on the Left */}
         <div className="absolute top-4 left-4">
-          <button className="bg-[#ffffff] opacity-90 px-3 py-3 rounded">
+          <button className="bg-[#ffffff] opacity-90 px-3 py-3 rounded ">
             <img src={uploadIcon} alt="Share" className="w-[16px] h-[16px]" />
           </button>
         </div>
@@ -58,9 +57,9 @@ const ProfileCard = ({ user }) => {
         </div>
 
         {/* User Info */}
-        <div className="ml-[220px]">
+        <div className="mt-[120px] lg:ml-[220px] lg:mt-0">
           {/* Offset to avoid overlapping the profile image */}
-          <div className=" flex items-center justify-between">
+          <div className=" md:flex items-center justify-between">
             <div className="flex items-center">
               <h2 className="text-[18px] font-bold text-[#181818] mr-2">
                 {user.name}
@@ -80,12 +79,10 @@ const ProfileCard = ({ user }) => {
           <p className="text-gray-600 text-[14px] max-w-lg leading-[21px]">
             {user.occupation.title}, {user.occupation.description}
           </p>
-          <div className="py-6 flex justify-between items-center bg-white">
+          <div className="py-6 flex space-x-4 items-center bg-white overflow-clip">
             <BlueButton>CONTACT INFO</BlueButton>
 
-            <button className="bg-white text-gray-700 border border-gray-300 hover:bg-gray-100 py-2 px-4 rounded-full">
-              {user.connections} Connections
-            </button>
+            <TransparentBtn>{user.connections} Connections</TransparentBtn>
           </div>
         </div>
       </div>

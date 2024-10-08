@@ -45,13 +45,13 @@ export default function Navbar() {
               </div>
 
               {/* Middle navigation links with icons */}
-              <div className="hidden sm:flex   justify-start items-center  space-x-2  h-full border-r-[1px] border-[#F4F4F4] ">
+              <div className="hidden lg:flex   justify-start items-center  space-x-2  h-full border-r-[1px] border-[#F4F4F4] ">
                 <NavLink
                   to="feed"
                   className={({ isActive }) =>
                     isActive
-                      ? "flex flex-col items-center text-sm font-medium px-6 text-[#0275B1] text-[12px]"
-                      : "flex flex-col items-center text-sm font-medium  px-6 text-[#181818] text-[12px]"
+                      ? "flex flex-col items-center font-medium px-6 text-[#0275B1] text-[12px] py-2 border-b-[2px] border-[#0275B1]"
+                      : "flex flex-col items-center font-medium  px-6 text-[#181818] text-[12px]"
                   }
                 >
                   <svg
@@ -89,8 +89,8 @@ export default function Navbar() {
                   to="network"
                   className={({ isActive }) =>
                     isActive
-                      ? "flex flex-col items-center text-sm px-6 font-medium text-[#0275B1] text-[12px]"
-                      : "flex flex-col items-center text-sm px-6 font-medium text-[#181818] text-[12px]"
+                      ? "flex flex-col items-center  px-6 font-medium text-[#0275B1] text-[12px] py-2 border-b-[2px] border-[#0275B1]"
+                      : "flex flex-col items-center  px-6 font-medium text-[#181818] text-[12px]"
                   }
                 >
                   <svg
@@ -135,8 +135,8 @@ export default function Navbar() {
                   to="jobs"
                   className={({ isActive }) =>
                     isActive
-                      ? "flex flex-col items-center text-sm px-6 font-medium text-[#0275B1] text-[12px]"
-                      : "flex flex-col items-center text-sm px-6 font-medium text-[#181818] text-[12px]"
+                      ? "flex flex-col items-center px-6 font-medium text-[#0275B1] text-[12px] py-2 border-b-[2px] border-[#0275B1]"
+                      : "flex flex-col items-center px-6 font-medium text-[#181818] text-[12px]"
                   }
                 >
                   <svg
@@ -167,8 +167,8 @@ export default function Navbar() {
                   to="chat"
                   className={({ isActive }) =>
                     isActive
-                      ? "flex flex-col items-center text-sm px-6 font-medium text-[#0275B1] text-[12px]"
-                      : "flex flex-col items-center text-sm px-6 font-medium text-[#181818] text-[12px]"
+                      ? "flex flex-col items-center px-6 font-medium text-[#0275B1] text-[12px] py-2 border-b-[2px] border-[#0275B1]"
+                      : "flex flex-col items-center px-6 font-medium text-[#181818] text-[12px]"
                   }
                 >
                   <svg
@@ -192,8 +192,8 @@ export default function Navbar() {
                   to="notices"
                   className={({ isActive }) =>
                     isActive
-                      ? "flex flex-col items-center text-sm font-medium px-6 text-[#0275B1] text-[12px]"
-                      : "flex flex-col items-center text-sm font-medium px-6 text-[#181818] text-[12px]"
+                      ? "flex flex-col items-center font-medium px-6 text-[#0275B1] text-[12px] py-2 border-b-[2px] border-[#0275B1]"
+                      : "flex flex-col items-center font-medium px-6 text-[#181818] text-[12px]"
                   }
                 >
                   <BellIcon className="h-6 w-6" />
@@ -202,11 +202,11 @@ export default function Navbar() {
               </div>
 
               {/* Search Bar */}
-              <div className="mx-auto md:mx-0 flex flex-1 justify-start sm:items-center sm:space-x-4 h-full border-r-[1px] border-[#F4F4F4] px-6 ">
+              <div className="mx-auto md:mx-0 flex flex-1 justify-center md:justify-start items-center sm:space-x-4 h-full border-r-[1px] border-[#F4F4F4] px-6 ">
                 <div className="relative">
                   <input
                     type="text"
-                    className="block w-full pl-10 pr-3 py-2 leading-5 bg-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                    className="block w-full pl-10 pr-3 py-2 leading-5 bg-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 sm:text-[12px]"
                     placeholder="Search"
                   />
                   <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
@@ -216,11 +216,11 @@ export default function Navbar() {
               </div>
 
               {/* Profile and other options */}
-              <div className="absolute inset-y-0 right-0 hidden sm:flex sm:flex-1 items-center space-x-4 pr-8 sm:static sm:inset-auto sm:ml-6  h-full border-r-[1px] border-[#F4F4F4]">
+              <div className="absolute inset-y-0 right-0 hidden lg:flex lg:flex-1 items-center space-x-4 pr-8 sm:static sm:inset-auto sm:ml-6  h-full border-r-[1px] border-[#F4F4F4]">
                 {/* Profile dropdown */}
                 <Menu as="div" className="relative">
                   <div>
-                    <MenuButton className="flex rounded-full bg-white text-sm focus:outline-none">
+                    <MenuButton className="flex rounded-full bg-white text-[12px] focus:outline-none">
                       <span className="sr-only">Open user menu</span>
                       <img
                         className="h-[42px] w-[42px] rounded-full"
@@ -234,7 +234,7 @@ export default function Navbar() {
                       {({ active }) => (
                         <a
                           href="#"
-                          className={`block px-4 py-2 text-sm ${
+                          className={`block px-4 py-2 text-[12px] ${
                             active ? "bg-gray-100" : ""
                           }`}
                         >
@@ -246,7 +246,7 @@ export default function Navbar() {
                       {({ active }) => (
                         <a
                           href="#"
-                          className={`block px-4 py-2 text-sm ${
+                          className={`block px-4 py-2 text-[12px] ${
                             active ? "bg-gray-100" : ""
                           }`}
                         >
@@ -258,7 +258,7 @@ export default function Navbar() {
                       {({ active }) => (
                         <a
                           href="#"
-                          className={`block px-4 py-2 text-sm ${
+                          className={`block px-4 py-2 text-[12px] ${
                             active ? "bg-gray-100" : ""
                           }`}
                         >
@@ -268,9 +268,9 @@ export default function Navbar() {
                     </MenuItem>
                   </MenuItems>
                 </Menu>
-                <div className="flex flex-col">
+                <div className="hidden lg:flex flex-col whitespace-nowrap">
                   <div className="flex space-x-2">
-                    <p className="text-[12px]">{user.name}</p>
+                    <p className="text-[12px] ">{user.name}</p>
                     <span className="text-[12px]">You</span>
                   </div>
                   <div className="flex space-x-2">
@@ -279,7 +279,7 @@ export default function Navbar() {
                   </div>
                 </div>
               </div>
-              <div className="h-full border-r-[1px] border-[#F4F4F4] py-2 px-4">
+              <div className="hidden lg:block h-full border-r-[1px] border-[#F4F4F4] py-2 px-4">
                 <div className="flex flex-col items-center ">
                   <span>
                     <img src={More} alt="" />
