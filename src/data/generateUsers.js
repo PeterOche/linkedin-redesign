@@ -123,6 +123,16 @@ export const generateUsers = (num = 10) => {
           .recent(1)
           .getFullYear()}`,
       },
+      groups: Array.from(
+        { length: faker.number.int({ min: 1, max: 10 }) },
+        () => ({
+          name: faker.internet.domainName(),
+          image: `https://picsum.photos/300/200?random=${faker.number.int({
+            min: 1,
+            max: 1000,
+          })}`,
+        })
+      ),
       skills: Array.from(
         { length: faker.number.int({ min: 1, max: 10 }) },
         () => ({

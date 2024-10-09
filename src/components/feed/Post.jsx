@@ -32,13 +32,15 @@ const Post = ({ post }) => {
         {interactions?.likedBy?.length > 0 && (
           <div className="post-interactions mb-4">
             <p className="text-[10px] text-[#0275B1] mb-2">
-              {interactions?.likedBy?.length === 1
-                ? `${interactions.likedBy[0]} liked this`
-                : interactions?.likedBy?.length === 2
-                ? `${interactions.likedBy[0]} and ${interactions.likedBy[1]} liked this`
-                : `${interactions.likedBy.slice(0, 2).join(", ")} and ${
-                    interactions?.likedBy?.length - 2
-                  } others liked this`}
+              {interactions.likedBy[0]
+                ? interactions.likedBy.length === 1
+                  ? `${interactions.likedBy[0]} liked this`
+                  : interactions.likedBy.length === 2
+                  ? `${interactions.likedBy[0]} and ${interactions.likedBy[1]} liked this`
+                  : `${interactions.likedBy.slice(0, 2).join(", ")} and ${
+                      interactions.likedBy.length - 2
+                    } others liked this`
+                : "You liked this"}
             </p>
           </div>
         )}

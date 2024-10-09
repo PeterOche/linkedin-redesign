@@ -14,10 +14,10 @@ const CreatePost = () => {
 
   const handlePostSubmit = async () => {
     if (postText.trim()) {
-      setLoading(true); // Set loading state to true
+      setLoading(true);
       try {
         const newPost = {
-          id: Date.now(), // unique post ID
+          id: Date.now(),
           userId: currentUser._id,
           user: {
             _id: currentUser._id,
@@ -25,21 +25,21 @@ const CreatePost = () => {
             profileImage: currentUser.profileImage,
             occupation: currentUser.occupation.title,
           },
-          content: postText, // text entered by user
+          content: postText,
           likes: 0,
           comments: 0,
           trending: 1,
           datePosted: new Date().toDateString(),
           interactions: {
-            likedBy: [], // initially no likes
+            likedBy: [],
           },
-          image: null, // no image initially
-          attachments: [], // no attachments
+          image: null,
+          attachments: [],
         };
 
-        console.log(newPost); // Debugging newPost data
+        console.log(newPost);
         dispatch({ type: "ADD_POST", payload: newPost });
-        // Clear the input and loading state
+
         setPostText("");
         setLoading(false);
       } catch (error) {
@@ -72,10 +72,10 @@ const CreatePost = () => {
               <button
                 className="text-white p-2 rounded-full"
                 onClick={handlePostSubmit}
-                disabled={loading} // Disable the button while loading
+                disabled={loading}
               >
                 {loading ? (
-                  <span>Loading...</span> // Optional: loading indicator
+                  <span>Loading...</span>
                 ) : (
                   <img src={send} className="w-[36px] h-[36px] " />
                 )}

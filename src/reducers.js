@@ -9,6 +9,7 @@ export const initialState = {
   posts: generatePosts(),
   jobs: generateJobs(),
   messages: generateMessages(),
+  sortOption: "TRENDING",
 };
 
 const appReducer = (state = initialState, action) => {
@@ -43,6 +44,32 @@ const appReducer = (state = initialState, action) => {
         ),
       };
 
+    case "SET_SORT_OPTION":
+      return {
+        ...state,
+        sortOption: action.payload,
+      };
+
+    case "SORT_POSTS":
+      const { sortBy } = action.payload;
+
+      const sortedPosts = [...state.posts].sort((a, b) => {
+        switch (sortBy) {
+          case "TRENDING":
+            return b.trending - a.trending; // Sort by trending score
+          case "NEW":
+            return new Date(b.datePosted) - new Date(a.datePosted); // Sort by newest date
+          case "MOST LIKED":
+            return b.likes - a.likes; // Sort by most likes
+          default:
+            return 0;
+        }
+      });
+
+      return {
+        ...state,
+        posts: sortedPosts,
+      };
     //other cases
 
     default:
