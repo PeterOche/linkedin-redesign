@@ -17,28 +17,34 @@ const CreatePost = () => {
       setLoading(true); // Set loading state to true
       try {
         const newPost = {
-          id: Date.now(),
-          userId: currentUser.id,
-          user: currentUser,
-          content: postText,
-          likes: 0,
-          interactions: {
-            likedBy: [], // Change this line to be an array
+          id: Date.now(), // unique post ID
+          userId: currentUser._id,
+          user: {
+            _id: currentUser._id,
+            name: currentUser.name,
+            profileImage: currentUser.profileImage,
+            occupation: currentUser.occupation.title,
           },
-          trending: 1,
+          content: postText, // text entered by user
+          likes: 0,
           comments: 0,
-          datePosted: Date.now(),
-          image: null,
-          attachment: [],
+          trending: 1,
+          datePosted: new Date().toDateString(),
+          interactions: {
+            likedBy: [], // initially no likes
+          },
+          image: null, // no image initially
+          attachments: [], // no attachments
         };
 
+        console.log(newPost); // Debugging newPost data
         dispatch({ type: "ADD_POST", payload: newPost });
-        setPostText(""); // Reset post text
+        // Clear the input and loading state
+        setPostText("");
+        setLoading(false);
       } catch (error) {
-        console.error("Error adding post:", error);
-        // Handle error (e.g., display a message to the user)
-      } finally {
-        setLoading(false); // Reset loading state
+        console.error("Error creating post:", error);
+        setLoading(false);
       }
     }
   };

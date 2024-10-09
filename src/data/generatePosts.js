@@ -5,7 +5,7 @@ export const generatePosts = (num = 10) => {
   return Array.from({ length: num }, () => {
     // Generate mock user data
     const user = {
-      _id: faker.string.uuid(),
+      id: faker.string.uuid(),
       name: faker.name.fullName(),
       profileImage: `https://randomuser.me/api/portraits/men/${faker.number.int(
         { min: 1, max: 99 }
@@ -40,7 +40,7 @@ export const generatePosts = (num = 10) => {
             })}`
           : null,
       attachments:
-        Math.random() > 0.7
+        Math.random() > 0.4
           ? [
               {
                 title: "iOS 11 guidelines for UX/UI designers",
@@ -55,7 +55,7 @@ export const generatePosts = (num = 10) => {
                 url: faker.internet.url(),
               },
             ]
-          : [], // 30% chance to have attachments
+          : [], // 40% chance to have attachments
     };
   });
 };

@@ -9,19 +9,10 @@ const Post = ({ post }) => {
   const { state, dispatch } = useContext(AppContext);
   const currentUser = state.users[0];
 
-  const {
-    user,
-    content,
-    likes,
-    comments,
-    datePosted,
-    trending,
-    interactions,
-    attachments,
-    image,
-  } = post;
+  const { user, content, likes, comments, interactions, attachments, image } =
+    post;
 
-  const likedByCurrentUser = interactions.likedBy?.includes(currentUser.id); // Use optional chaining
+  const likedByCurrentUser = interactions.likedBy.includes(currentUser.id);
 
   const handleLike = () => {
     dispatch({
@@ -35,25 +26,23 @@ const Post = ({ post }) => {
   };
 
   return (
-    <div className="post bg-white p-5 mb-5 rounded">
+    <div className="post bg-white p-5 mb-5 rounded ">
       {/* Post Interactions */}
       <div className="flex justify-between">
-        {interactions.likedBy && interactions.likedBy.length > 0 ? ( // Check if likedBy is defined and not empty
+        {interactions?.likedBy?.length > 0 && (
           <div className="post-interactions mb-4">
             <p className="text-[10px] text-[#0275B1] mb-2">
-              {interactions.likedBy.length === 1
+              {interactions?.likedBy?.length === 1
                 ? `${interactions.likedBy[0]} liked this`
-                : interactions.likedBy.length === 2
+                : interactions?.likedBy?.length === 2
                 ? `${interactions.likedBy[0]} and ${interactions.likedBy[1]} liked this`
                 : `${interactions.likedBy.slice(0, 2).join(", ")} and ${
-                    interactions.likedBy.length - 2
+                    interactions?.likedBy?.length - 2
                   } others liked this`}
             </p>
           </div>
-        ) : (
-          <p className="text-[10px] text-[#999] mb-2">No likes yet</p> // Fallback message for no likes
         )}
-        <img src={More} alt="More options" />
+        <img src={More} />
       </div>
 
       {/* User Information */}
@@ -72,18 +61,26 @@ const Post = ({ post }) => {
       </div>
 
       {/* Post Content */}
-      <p className="text-[14px] text-[#181818] leading-[21px] mb-4">
+      <p className="text-[14px] text-[#181818] leading-[21px]  mb-4">
         {content}
       </p>
 
+      {/* Post Meta Data */}
+      {/* <div className="post-meta text-sm text-gray-500 mb-4">
+        <p className="mb-1">Date Posted: {datePosted}</p>
+        <p className="mb-1">Trending Score: {trending}</p>
+        <p className="mb-1">Likes: {likes}</p>
+        <p>Comments: {comments}</p>
+      </div> */}
+
       {/* Render Attachments or Image */}
-      {attachments.length > 0 && !image ? (
+      {attachments?.length > 0 && !image ? (
         <div className="post-attachments mt-3">
           <div className="space-y-2 py-2">
-            {attachments.map((attachment, index) => (
+            {attachments?.map((attachment, index) => (
               <div
                 key={index}
-                className="flex items-center justify-between bg-[#E9F0F8] text-[#181818] p-4 rounded"
+                className="flex items-center justify-between bg-[#E9F0F8] text-[#181818] p-4  rounded"
               >
                 <div className="flex items-center">
                   {/* Icon on the left (PDF icon) */}
@@ -134,6 +131,7 @@ const Post = ({ post }) => {
       ) : null}
 
       {/* Interaction Buttons */}
+      {/* Interaction Buttons */}
       <div className="interaction-buttons flex justify-between items-center mt-4 border-t pt-3 text-sm text-[#181818]">
         <div className="flex gap-12 items-center">
           <button
@@ -171,17 +169,21 @@ const Post = ({ post }) => {
               xmlns="http://www.w3.org/2000/svg"
             >
               <path
-                d="M13 6.66669C13.0023 7.5466 12.7967 8.41461 12.4 9.20002C11.9296 10.1412 11.2065 10.9328 10.3116 11.4862C9.41677 12.0396 8.3855 12.3329 7.33333 12.3334C6.45342 12.3356 5.58541 12.1301 4.8 11.7334L1 13L2.26667 9.20002C1.86995 8.41461 1.66437 7.5466 1.66667 6.66669C1.66915 5.26174 2.30802 3.95787 3.43333 3.06669C4.55864 2.17551 6.22439 1.75971 7.7 2.00002C9.17562 2.24033 10.2974 3.00062 11.1 4.20002C11.6595 5.25788 12.0029 6.49465 12.1 7.80002C12.1 7.08002 12.0212 6.38186 11.9 5.70002C11.7788 5.01818 11.5758 4.39016 11.3333 3.80002C11.1341 3.28379 10.9317 2.80539 10.7333 2.36669C10.5133 1.89406 10.2788 1.47061 10.0667 1.10002C9.87807 0.807095 9.60489 0.56554 9.29074 0.4C8.97659 0.234458 8.61576 0.150313 8.26667 0.133356C7.91758 0.116398 7.57699 0.267885 7.33333 0.600021C7.05245 1.02477 6.60002 1.16669 6 1.16669C5.6999 1.16669 5.38062 1.04687 5.1 0.900021C4.61942 0.616818 4.34949 0.0981567 4.4 0.133356C4.81324 0.335287 5.21531 0.666689 5.53333 1.16669C5.80345 1.62652 6 1.85232 6.26667 2.00002C7.23869 2.52914 8.07844 2.89512 8.73333 3.06669C9.38822 3.23826 10.0133 3.26669 10.5333 3.16669C10.6843 3.13366 10.8279 3.13035 10.9667 3.16669C11.2452 3.27534 11.5483 3.36587 11.8667 3.46669C12.186 3.56635 12.5667 3.66669 13 4.20002"
-                fill="none"
+                d="M13 6.66669C13.0023 7.5466 12.7967 8.41461 12.4 9.20002C11.9296 10.1412 11.2065 10.9328 10.3116 11.4862C9.41677 12.0396 8.3855 12.3329 7.33333 12.3334C6.45342 12.3356 5.58541 12.1301 4.8 11.7334L1 13L2.26667 9.20002C1.86995 8.41461 1.66437 7.5466 1.66667 6.66669C1.66707 5.61452 1.96041 4.58325 2.51381 3.68839C3.06722 2.79352 3.85884 2.0704 4.8 1.60002C5.58541 1.20331 6.45342 0.997725 7.33333 1.00002H7.66667C9.05623 1.07668 10.3687 1.66319 11.3528 2.64726C12.3368 3.63132 12.9233 4.94379 13 6.33335V6.66669Z"
                 stroke="#0275B1"
-                strokeWidth="1.5"
-                strokeLinecap="round"
-                strokeLinejoin="round"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
               />
             </svg>
+
             {comments}
           </button>
         </div>
+        <button className="flex gap-1 items-center text-[11px] hover:text-[#0275B1]">
+          <img src={Share} alt="" />
+          Share
+        </button>
       </div>
     </div>
   );
