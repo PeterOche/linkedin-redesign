@@ -14,7 +14,7 @@ export const generatePosts = (num = 10) => {
     };
 
     return {
-      _id: faker.string.uuid(),
+      id: faker.string.uuid(),
       userId: user._id, // Keeping the userId for reference
       user: {
         name: user.name,
