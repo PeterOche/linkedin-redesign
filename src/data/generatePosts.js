@@ -27,10 +27,10 @@ export const generatePosts = (num = 10) => {
       comments: faker.number.int({ min: 0, max: 50 }),
       datePosted: faker.date.recent().toDateString(),
       interactions: {
-        likedBy: Array.from(
-          { length: faker.number.int({ min: 1, max: 3 }) },
-          () => faker.name.fullName()
-        ), // Names of people who liked the post
+        likedBy:
+          Array.from({ length: faker.number.int({ min: 1, max: 3 }) }, () =>
+            faker.name.fullName()
+          ) || [], // Names of people who liked the post
       },
       image:
         Math.random() > 0.5

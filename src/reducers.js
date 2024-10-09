@@ -14,7 +14,14 @@ export const initialState = {
 const appReducer = (state = initialState, action) => {
   switch (action.type) {
     case "ADD_POST":
-      return { ...state, posts: [action.payload, ...state.posts] };
+      if (
+        action.payload &&
+        !state.posts.find((post) => post.id === action.payload.id)
+      ) {
+        return { ...state, posts: [action.payload, ...state.posts] };
+      } else {
+        return state;
+      }
     case "LIKE_POST":
       return {
         ...state,
