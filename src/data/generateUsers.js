@@ -131,6 +131,7 @@ export const generateUsers = (num = 10) => {
             min: 1,
             max: 1000,
           })}`,
+          article: faker.commerce.productDescription(),
         })
       ),
       skills: Array.from(

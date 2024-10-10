@@ -8,6 +8,8 @@ import VisitorCard from "../components/shared/VisitorCard";
 import SideProfileCard from "../components/feed/SideProfileCard";
 import NewArticleCard from "../components/feed/NewArticleCard";
 import GroupsCard from "../components/feed/GroupsCard";
+import HashtagsCard from "../components/feed/HashtagsCard";
+import TrendingArticles from "../components/feed/TrendingArticles";
 
 const Feed = () => {
   const { state, dispatch } = useContext(AppContext);
@@ -25,6 +27,8 @@ const Feed = () => {
         <SideProfileCard user={user} />
         <NewArticleCard />
         <GroupsCard groups={groups} />
+        <HashtagsCard />
+        <TrendingArticles articles={groups} />
       </div>
     </div>
   );

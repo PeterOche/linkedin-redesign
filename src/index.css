@@ -155,3 +155,21 @@ body {
   font-weight: 300;
   font-style: italic;
 }
+
+.clamp-text {
+  display: -webkit-box;
+  -webkit-line-clamp: 2; /* Limits to 2 lines */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  position: relative;
+}
+
+.clamp-text::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 30%; /* Adjust width for blur coverage */
+  height: 1.5em; /* Adjust height to match text line height */
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, #fff 100%);
+}

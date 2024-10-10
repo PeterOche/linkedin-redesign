@@ -25,7 +25,7 @@ export const generatePosts = (num = 10) => {
       trending: faker.number.int({ min: 1, max: 10 }),
       likes: faker.number.int({ min: 0, max: 100 }),
       comments: faker.number.int({ min: 0, max: 50 }),
-      datePosted: faker.date.recent().toDateString(),
+      datePosted: faker.date.past().toDateString(),
       interactions: {
         likedBy:
           Array.from({ length: faker.number.int({ min: 1, max: 3 }) }, () =>

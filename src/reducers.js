@@ -56,11 +56,11 @@ const appReducer = (state = initialState, action) => {
       const sortedPosts = [...state.posts].sort((a, b) => {
         switch (sortBy) {
           case "TRENDING":
-            return b.trending - a.trending; // Sort by trending score
+            return b.trending - a.trending;
           case "NEW":
-            return new Date(b.datePosted) - new Date(a.datePosted); // Sort by newest date
+            return new Date(b.datePosted) - new Date(a.datePosted);
           case "MOST LIKED":
-            return b.likes - a.likes; // Sort by most likes
+            return b.likes - a.likes;
           default:
             return 0;
         }
