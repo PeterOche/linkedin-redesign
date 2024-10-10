@@ -10,7 +10,7 @@ const Tabs = ({ tabs, selectedTab, onTabClick }) => {
           onClick={() => onTabClick(index)}
           className={`cursor-pointer font-[400] text-[12px] py-2 px-20 relative flex items-center justify-center transition-all duration-300 ${
             selectedTab === index
-              ? "rounded bg-gradient-to-r from-[#0077B5] to-[#0E6795] hover:bg-gradient-to-l text-white font-semibold px-8"
+              ? "rounded bg-gradient-to-r from-[#0077B5] to-[#0E6795] hover:bg-gradient-to-l text-white font-semibold "
               : "rounded text-[#181818] bg-[#FFFFFF] mt-3 border-[#E7E7E7]"
           }`}
         >

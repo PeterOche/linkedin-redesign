@@ -86,9 +86,9 @@ const ChatComponent = () => {
   ];
 
   return (
-    <div className="container lg:grid grid-cols-4 lg:gap-[40px] mx-auto px-8 md:px-24 mt-[40px]">
+    <div className="container lg:grid grid-cols-4 lg:gap-[5px] mx-auto px-8 md:px-24 mt-[40px]">
       {/* Sidebar for Contacts */}
-      <div className="col-span-1 px-1 rounded mx-8">
+      <div className="col-span-1 px-1 rounded ">
         <div className="mb-4 bg-[#FCFDFD]">
           <h1 className="text-[#181818] text-[12px] font-bold w-full border-b mt-2 pb-4">
             CHAT
@@ -124,7 +124,7 @@ const ChatComponent = () => {
       </div>
 
       {/* Chat Window */}
-      <div className="col-span-3 flex-1 flex flex-col max-h-[595px] rounded bg-white mx-20">
+      <div className="col-span-3 flex-1 flex flex-col max-h-[595px] rounded bg-white mx-12">
         {/* Chat Header */}
         <div className=" flex justify-between  items-center p-4 border-b border-gray-200">
           <h2 className="font-bold text-[12px]">
