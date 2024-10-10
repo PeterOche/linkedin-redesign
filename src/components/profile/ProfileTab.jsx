@@ -6,8 +6,8 @@ import ProfileItems from "./ProfileItems";
 
 const ProfileTab = () => {
   const Profile = () => <ProfileItems />;
-  const Activity = () => <BlankTab content="Profile" />;
-  const Articles = () => <BlankTab content="Profile" />;
+  const Activity = () => <BlankTab content="Activity" />;
+  const Articles = () => <BlankTab content="Articles" />;
   const tabData = [
     { label: "PROFILE", component: Profile },
     { label: "ACTIVITY & INTERESTS", component: Activity },
