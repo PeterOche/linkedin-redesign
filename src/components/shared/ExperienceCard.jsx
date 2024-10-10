@@ -4,7 +4,7 @@ import AppContext from "../../AppState";
 
 const ExperienceCard = () => {
   const { state } = useContext(AppContext);
-  const userExperience = state.users[0].experience; // Assuming we're using the 3rd user
+  const userExperience = state.users[0].experience.slice(0, 2);
 
   return (
     <Card>

@@ -205,7 +205,7 @@ export default function Navbar() {
               <div className="mx-auto md:mx-0 flex flex-1 justify-center md:justify-start items-center sm:space-x-4 h-full border-r-[1px] border-[#F4F4F4] px-6 ">
                 <div className="relative">
                   <input
-                    type="text"
+                    type="search"
                     className="block w-full pl-10 pr-3 py-2 leading-5 bg-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 sm:text-[12px]"
                     placeholder="Search"
                   />

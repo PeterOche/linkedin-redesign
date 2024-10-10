@@ -6,6 +6,8 @@ const companyLogos = {
   Google: "https://logo.clearbit.com/google.com",
   Microsoft: "https://logo.clearbit.com/microsoft.com",
   Upwork: "https://logo.clearbit.com/upwork.com",
+  Twitter: "https://logo.clearbit.com/twitter.com",
+  Gucci: "https://logo.clearbit.com/gucci.com",
   "Self Employed": "https://picsum.photos/50/50", // placeholder image for self-employed
 };
 
@@ -150,7 +152,7 @@ export const generateUsers = (num = 10) => {
           ),
         })
       ),
-      experience: Array.from({ length: 2 }, () => {
+      experience: Array.from({ length: 8 }, () => {
         const company = faker.helpers.arrayElement(companies);
         return {
           title: faker.helpers.arrayElement(jobTitles),

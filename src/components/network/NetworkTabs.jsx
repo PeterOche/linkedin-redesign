@@ -5,7 +5,7 @@ import RecievedItems from "./RecievedItems";
 
 const NetworkTabs = () => {
   const Profile = () => <RecievedItems />;
-  const Activity = () => <BlankTab content="Profile" />;
+  const Activity = () => <BlankTab content="SENT" />;
   const tabData = [
     { label: "RECIEVED", component: Profile },
     { label: "SENT", component: Activity },

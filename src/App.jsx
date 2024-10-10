@@ -32,9 +32,11 @@ const router = createBrowserRouter([
 function App() {
   return (
     <>
-      <AppStateProvider>
-        <RouterProvider router={router} />
-      </AppStateProvider>
+      <div className="bg-[#f7f9fb] min-h-screen">
+        <AppStateProvider>
+          <RouterProvider router={router} />
+        </AppStateProvider>
+      </div>
     </>
   );
 }
