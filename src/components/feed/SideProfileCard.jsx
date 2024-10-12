@@ -4,7 +4,7 @@ import planeLogo from "../../assets/planeLogo.svg";
 
 const SideProfileCard = ({ user }) => {
   return (
-    <div className="relative bg-white shadow rounded overflow-hidden mb-4">
+    <div className="relative bg-white shadow rounded overflow-hidden mb-4 pb-4">
       {/* Background Image */}
       <div className="relative w-full h-[140px] bg-gray-100">
         <img

@@ -12,6 +12,7 @@ import More from "../assets/more-horizontal.svg";
 import { NavLink } from "react-router-dom";
 import { useContext } from "react";
 import AppContext from "../AppState";
+import arrowUp from "../assets/arrow-up-right.svg";
 
 export default function Navbar() {
   const { state } = useContext(AppContext);
@@ -24,7 +25,7 @@ export default function Navbar() {
           <div className=" max-w-full sm:px-8">
             <div className="relative flex h-16 space-x-4 items-center">
               {/* Mobile Menu button */}
-              <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
+              <div className="absolute inset-y-0 left-0 flex items-center lg:hidden">
                 <Disclosure.Button className="inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
                   <span className="sr-only">Open main menu</span>
                   {open ? (
@@ -36,13 +37,15 @@ export default function Navbar() {
               </div>
 
               {/* Logo */}
-              <div className="sm:flex items-center hidden h-full border-r-[1px] border-[#F4F4F4] pr-4">
-                <img
-                  src={LinkedInLogo}
-                  alt="LinkedIn"
-                  className="h-[46px] w-[46px] mx-auto"
-                />
-              </div>
+              <NavLink to="/">
+                <div className="lg:flex items-center hidden h-full border-r-[1px] border-[#F4F4F4] pr-4">
+                  <img
+                    src={LinkedInLogo}
+                    alt="LinkedIn"
+                    className="h-[46px] w-[46px] mx-auto"
+                  />
+                </div>
+              </NavLink>
 
               {/* Middle navigation links with icons */}
               <div className="hidden lg:flex   justify-start items-center  space-x-2  h-full border-r-[1px] border-[#F4F4F4] ">
@@ -202,11 +205,11 @@ export default function Navbar() {
               </div>
 
               {/* Search Bar */}
-              <div className="mx-auto md:mx-0 flex flex-1 justify-center md:justify-start items-center sm:space-x-4 h-full border-r-[1px] border-[#F4F4F4] px-6 ">
-                <div className="relative">
+              <div className="mx-auto md:mx-0 flex flex-1 justify-center lg:justify-start items-center sm:space-x-4 h-full border-r-[1px] border-[#F4F4F4] px-5 ">
+                <div className="relative w-full">
                   <input
                     type="search"
-                    className="block w-full pl-10 pr-3 py-2 leading-5 bg-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 sm:text-[12px]"
+                    className="block w-full pl-10 pr-3 py-2 leading-5 bg-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-[#0275B1] focus:border-[#0275B1] sm:text-[12px]"
                     placeholder="Search"
                   />
                   <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
@@ -216,7 +219,7 @@ export default function Navbar() {
               </div>
 
               {/* Profile and other options */}
-              <div className="absolute inset-y-0 right-0 hidden lg:flex lg:flex-1 items-center space-x-4 pr-8 sm:static sm:inset-auto sm:ml-6  h-full border-r-[1px] border-[#F4F4F4]">
+              <div className="absolute inset-y-0 right-0 hidden lg:flex items-center space-x-4 pr-20 sm:static sm:inset-auto sm:ml-6  h-full border-r-[1px] border-[#F4F4F4]">
                 {/* Profile dropdown */}
                 <Menu as="div" className="relative">
                   <div>
@@ -275,7 +278,12 @@ export default function Navbar() {
                   </div>
                   <div className="flex space-x-2">
                     <p className="text-[12px]">367 views today</p>
-                    <p className="text-[12px] text-[#02B033]">+32</p>
+                    <p className="text-[12px] text-[#02B033] flex items-center gap-1">
+                      +32{" "}
+                      <span>
+                        <img src={arrowUp} className="w-[12px] h-[12px]" />
+                      </span>
+                    </p>
                   </div>
                 </div>
               </div>
@@ -293,7 +301,9 @@ export default function Navbar() {
           {/* Mobile menu, toggle based on menu state */}
           <Disclosure.Panel className="sm:hidden">
             <div className="space-y-1 px-2 pt-2 pb-3">
-              <img src={LinkedInLogo} alt="LinkedIn" />
+              <NavLink to="/">
+                <img src={LinkedInLogo} alt="LinkedIn" />
+              </NavLink>
               <NavLink
                 to="feed"
                 className={({ isActive }) =>

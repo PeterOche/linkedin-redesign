@@ -8,7 +8,7 @@ import hash from "../../assets/hash.svg";
 
 const LeftCard = () => {
   return (
-    <div className="w-full max-w-xs mb-4 bg-white rounded">
+    <div className="w-full lg:max-w-xs mb-4 bg-white rounded">
       <ul className="menu py-4 text-[12px]">
         <li className="flex justify-between items-center border-b py-2">
           <div className="flex w-full px-4 items-center justify-between">

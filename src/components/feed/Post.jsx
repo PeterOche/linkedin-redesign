@@ -128,7 +128,7 @@ const Post = ({ post }) => {
         </div>
       ) : image ? (
         <div className="post-image mt-4">
-          <img src={image} alt="Post" className="w-full h-[300px] rounded-lg" />
+          <img src={image} alt="Post" className="w-full h-[300px] px-2" />
         </div>
       ) : null}
 

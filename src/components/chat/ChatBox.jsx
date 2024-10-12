@@ -1,10 +1,13 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import photo from "../../assets/photo.svg";
 import send from "../../assets/send.svg";
 import Card from "../shared/Card";
 import BlueButton from "../shared/BlueButton";
+import AppContext from "../../AppState";
 
 const ChatComponent = () => {
+  const { state } = useContext(AppContext);
+  const user = state.users[0];
   const [messages, setMessages] = useState([
     {
       position: "right",
@@ -86,7 +89,7 @@ const ChatComponent = () => {
   ];
 
   return (
-    <div className="container lg:grid grid-cols-4 lg:gap-[5px] mx-auto px-8 md:px-24 mt-[40px]">
+    <div className="container lg:grid grid-cols-4 lg:gap-[5px] mx-auto px-8 md:px-24 mt-[40px] aspect-auto">
       {/* Sidebar for Contacts */}
       <div className="col-span-1 px-1 rounded ">
         <div className="mb-4 bg-[#FCFDFD]">
@@ -116,8 +119,8 @@ const ChatComponent = () => {
             </div>
           ))}
         </div>
-        <Card>
-          <div className="text-[12px] mx-auto">
+        <Card className="mb-16 lg:mb-0">
+          <div className="text-[12px] mx-auto ">
             <BlueButton>START NEW CHAT</BlueButton>
           </div>
         </Card>
@@ -173,13 +176,20 @@ const ChatComponent = () => {
                   </div>
                 </div>
               ) : (
-                <div>
-                  <div className="bg-[#E9F0F8] max-w-lg text-[#181818] p-3 rounded-lg ">
-                    <p>{message.text}</p>
+                <div className="flex justify-between gap-3">
+                  <div>
+                    <div className="bg-[#E9F0F8] max-w-lg text-[#181818] p-3 rounded-lg ">
+                      <p>{message.text}</p>
+                    </div>
+                    <span className="flex justify-end text-xs text-gray-300 mt-1">
+                      {message.date.toLocaleTimeString()}
+                    </span>
                   </div>
-                  <span className="flex justify-end text-xs text-gray-300 mt-1">
-                    {message.date.toLocaleTimeString()}
-                  </span>
+                  <img
+                    className="h-[42px] w-[42px] rounded-full"
+                    src={user.profileImage}
+                    alt=""
+                  />
                 </div>
               )}
             </div>
@@ -187,7 +197,7 @@ const ChatComponent = () => {
         </div>
 
         {/* Message Input */}
-        <div className="border-t border-gray-200 p-4 flex gap-4 items-center">
+        <div className="border-t border-gray-200 p-4 flex lg:gap-4 items-center ">
           <input
             type="text"
             value={newMessage}

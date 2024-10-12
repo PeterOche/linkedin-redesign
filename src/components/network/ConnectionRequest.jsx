@@ -9,7 +9,7 @@ const ConnectionRequest = ({ visitors }) => {
         {visitors.map((visitor, index) => (
           <div
             key={index}
-            className="grid grid-cols-5 gap-4 items-center p-4 bg-white shadow rounded-lg mb-4"
+            className="grid lg:grid-cols-5 gap-4 items-center p-4 bg-white shadow rounded-lg mb-4"
           >
             {/* Profile Image */}
 
