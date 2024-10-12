@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import photo from "../../assets/photo.svg";
+import profilePhoto from "../../assets/profilePhoto.svg";
 import send from "../../assets/send.svg";
 import Card from "../shared/Card";
 import BlueButton from "../shared/BlueButton";
@@ -47,42 +47,42 @@ const ChatComponent = () => {
       id: 1,
       name: "Darlene Black",
       message: "Hey, how is your project?",
-      img: photo,
+      img: profilePhoto,
       isActive: false,
     },
     {
       id: 2,
       name: "Kyle Fisher",
       message: "Nope, they kicked me out of the office!",
-      img: photo,
+      img: profilePhoto,
       isActive: true,
     },
     {
       id: 3,
       name: "Brandon Wilson",
       message: "Hey, how is your project?",
-      img: photo,
+      img: profilePhoto,
       isActive: false,
     },
     {
       id: 4,
       name: "Kyle Fisher",
       message: "So, It’s up to you!",
-      img: photo,
+      img: profilePhoto,
       isActive: false,
     },
     {
       id: 5,
       name: "Audrey Alexander",
       message: "When you got it?",
-      img: photo,
+      img: profilePhoto,
       isActive: false,
     },
     {
       id: 6,
       name: "Design Conference",
       message: "Can you guys help me with it?",
-      img: photo,
+      img: profilePhoto,
       isActive: false,
     },
     // Add more contacts as needed
