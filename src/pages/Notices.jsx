@@ -2,6 +2,7 @@ import React from "react";
 import NetworkTabs from "../components/network/NetworkTabs";
 import StatCard from "../components/shared/StatCard";
 import NotificationCard from "../components/notices/NotificationCard";
+import NotificationItems from "../components/notices/NotificationItems";
 
 const Notices = () => {
   return (
@@ -11,7 +12,7 @@ const Notices = () => {
         <StatCard />
       </div>
       <div className="col-span-3 space-y-4">
-        <NetworkTabs />
+        <NotificationItems />
       </div>
     </div>
   );
