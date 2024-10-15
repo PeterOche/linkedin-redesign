@@ -107,7 +107,7 @@ const OtherModal = ({ isOpen, onClose }) => {
 
                   {/* LinkedIn Premium */}
                   <button
-                    className="w-full text-yellow-800 p-3 rounded-md font-semibold"
+                    className="w-full text-white p-3 rounded-md font-semibold"
                     style={{
                       background:
                         "linear-gradient(180deg, #D8C281 0%, #AC9B69 100%)",
