@@ -15,7 +15,7 @@ const ProjectsCard = () => {
     : state.users[0].projects.slice(0, 3);
 
   return (
-    <Card>
+    <Card className="transform transition duration-3000 ease-in-out">
       <div className="px-4 space-y-2">
         <h3 className="text-[18px] font-semibold">
           Projects
@@ -23,9 +23,13 @@ const ProjectsCard = () => {
             {displayedProjects.length} of {state.users[0].projects.length}
           </span>
         </h3>
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-2">
+        <div
+          className={`grid grid-cols-2 md:grid-cols-3 gap-2 overflow-hidden transition-[max-height] duration-700 ease-in-out ${
+            showAll ? "max-h-[1000px]" : "max-h-[300px]"
+          }`}
+        >
           {displayedProjects.map((project, index) => (
-            <div key={index} className="space-y-2">
+            <div key={index} className="space-y-2 ">
               <img
                 src={project.image}
                 alt={project.title}

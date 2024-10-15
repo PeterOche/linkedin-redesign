@@ -49,7 +49,7 @@ const ProfileCard = ({ user }) => {
       {/* White Card Area (User Info) */}
       <div className="relative bg-white p-6 pt-8 z-10">
         {/* Profile Image with Overlap */}
-        <div className="absolute -top-12 left-6">
+        <div className=" absolute -top-12 md:left-6 left-12 right-12 ">
           <img
             className="w-[170px] h-[170px] rounded-full border-4 border-white"
             src={user.profileImage}
