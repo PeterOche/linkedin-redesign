@@ -1,115 +1,39 @@
 import React, { useContext, useState } from "react";
-import profilePhoto from "../../assets/profilePhoto.svg";
 import send from "../../assets/send.svg";
 import Card from "../shared/Card";
 import BlueButton from "../shared/BlueButton";
 import AppContext from "../../AppState";
 
 const ChatComponent = () => {
-  const { state } = useContext(AppContext);
+  const { state, dispatch } = useContext(AppContext);
   const user = state.users[0];
 
-  const contacts = [
-    {
-      id: 1,
-      name: "Darlene Black",
-      message: "Hey, how is your project?",
-      img: profilePhoto,
-      isActive: false,
-      messages: [
-        {
-          position: "left",
-          text: "Hey Darlene! Project is going great!",
-          date: new Date(),
-        },
-        { position: "right", text: "Not bad", date: new Date() },
-        {
-          position: "left",
-          text: "Awesome",
-          date: new Date(),
-        },
-        { position: "right", text: "what are you doing?", date: new Date() },
-        {
-          position: "left",
-          text: "Hey, how is Project going?",
-          date: new Date(),
-        },
-      ],
-    },
-    {
-      id: 2,
-      name: "Kyle Fisher",
-      message: "Nope, they kicked me out of the office!",
-      img: profilePhoto,
-      isActive: true,
-      messages: [
-        {
-          position: "right",
-          text: "Hi, Kyle. How are you doing?",
-          date: new Date(),
-        },
-        {
-          position: "left",
-          text: "Nope, they kicked me out of the office!",
-          date: new Date(),
-        },
-      ],
-    },
-    {
-      id: 3,
-      name: "Audrey Alexander",
-      message: "When you got it?",
-      img: profilePhoto,
-      isActive: false,
-      messages: [
-        {
-          position: "left",
-          text: "Hey, The project is moving forward.",
-          date: new Date(),
-        },
-        { position: "right", text: "Great job!", date: new Date() },
-        {
-          position: "left",
-          text: "Let me know if you need something else",
-          date: new Date(),
-        },
-        { position: "right", text: "Sure, thank you!", date: new Date() },
-      ],
-    },
-    {
-      id: 4,
-      name: "Brandon Wilson",
-      message: "Hey, how is your project?",
-      img: profilePhoto,
-      isActive: false,
-      messages: [
-        {
-          position: "left",
-          text: "Hey Brandon! The project is moving forward.",
-          date: new Date(),
-        },
-        { position: "right", text: "Great job!", date: new Date() },
-      ],
-    },
-  ];
-
-  const [activeContact, setActiveContact] = useState(contacts[2]);
+  const [activeContactId, setActiveContactId] = useState(2);
   const [newMessage, setNewMessage] = useState("");
+
+  const activeContact = state.messages.find(
+    (contact) => contact.id === activeContactId
+  );
 
   const handleSendMessage = () => {
     if (newMessage.trim()) {
-      const updatedMessages = [
-        ...activeContact.messages,
-        { position: "right", text: newMessage, date: new Date() },
-      ];
+      const message = {
+        position: "right",
+        text: newMessage,
+        date: new Date(),
+      };
 
-      setActiveContact({ ...activeContact, messages: updatedMessages });
+      dispatch({
+        type: "SEND_MESSAGE",
+        payload: { contactId: activeContact.id, message },
+      });
+
       setNewMessage("");
     }
   };
 
-  const handleContactClick = (contact) => {
-    setActiveContact(contact);
+  const handleContactClick = (contactId) => {
+    setActiveContactId(contactId);
   };
 
   return (
@@ -120,12 +44,12 @@ const ChatComponent = () => {
           <h1 className="text-[#181818] text-[12px] font-bold w-full border-b mt-2 pb-4">
             CHAT
           </h1>
-          {contacts.map((contact) => (
+          {state.messages.map((contact) => (
             <div
               key={contact.id}
-              onClick={() => handleContactClick(contact)}
+              onClick={() => handleContactClick(contact.id)}
               className={`flex items-center border-b border-[#F4F4F4] py-2 cursor-pointer ${
-                contact.id === activeContact.id
+                contact.id === activeContactId
                   ? "border-l-8 px-[10px] border-l-[#0275B1]"
                   : ""
               }`}
@@ -139,7 +63,11 @@ const ChatComponent = () => {
                 >
                   {contact.name}
                 </h3>
-                <p className="text-[10px] text-gray-500">{contact.message}</p>
+                {/* Handle empty messages array */}
+                <p className="text-[10px] text-gray-500">
+                  {contact.messages?.[contact.messages.length - 1]?.text ||
+                    "No messages yet"}
+                </p>
               </div>
             </div>
           ))}
@@ -154,10 +82,10 @@ const ChatComponent = () => {
       {/* Chat Window */}
       <div className="col-span-3 flex-1 flex flex-col max-h-[595px] rounded bg-white mx-12">
         {/* Chat Header */}
-        <div className="flex justify-between items-center p-4 border-b border-gray-200">
+        <div className="flex flex-col md:flex-row flex-wrap justify-between items-center p-4 border-b border-gray-200">
           <h2 className="font-bold text-[12px]">
             CHAT WITH{" "}
-            <span className="text-[#0275B1]">{activeContact.name}</span>
+            <span className="text-[#0275B1]">{activeContact?.name}</span>
             <span className="ml-2 text-[12px] text-[#181818] opacity-40">
               LAST ONLINE: 4 HOURS AGO
             </span>
@@ -166,38 +94,44 @@ const ChatComponent = () => {
 
         {/* Chat Messages */}
         <div className="flex-1 p-4 overflow-y-auto">
-          {activeContact.messages.map((message, index) => (
-            <div
-              key={index}
-              className={`flex ${
-                message.position === "right" ? "justify-end" : "justify-start"
-              } mb-4`}
-            >
-              {message.position === "left" ? (
-                <div className="chat chat-start">
-                  <div className="chat-bubble max-w-lg text-[14px] rounded-[4px] bg-[#0275B1] text-white">
-                    {message.text}
-                  </div>
-                </div>
-              ) : (
-                <div className="flex justify-between gap-3">
-                  <div>
-                    <div className="bg-[#E9F0F8] max-w-lg text-[#181818] p-3 text-[14px] rounded-lg ">
-                      <p>{message.text}</p>
+          {activeContact?.messages?.length ? (
+            activeContact.messages.map((message, index) => (
+              <div
+                key={index}
+                className={`flex ${
+                  message.position === "right" ? "justify-end" : "justify-start"
+                } mb-4`}
+              >
+                {message.position === "left" ? (
+                  <div className="chat chat-start">
+                    <div className="chat-bubble max-w-lg text-[14px] rounded-[4px] bg-[#0275B1] text-white">
+                      {message.text}
                     </div>
-                    <span className="flex justify-end text-xs text-gray-300 mt-1">
-                      {message.date.toLocaleTimeString()}
-                    </span>
                   </div>
-                  <img
-                    className="h-[42px] w-[42px] rounded-full"
-                    src={user.profileImage}
-                    alt=""
-                  />
-                </div>
-              )}
-            </div>
-          ))}
+                ) : (
+                  <div className="flex justify-between gap-3">
+                    <div>
+                      <div className="bg-[#E9F0F8] max-w-lg text-[#181818] p-3 text-[14px] rounded-lg ">
+                        <p>{message.text}</p>
+                      </div>
+                      <span className="flex justify-end text-xs text-gray-300 mt-1">
+                        {message.date.toLocaleTimeString()}
+                      </span>
+                    </div>
+                    <img
+                      className="h-[42px] w-[42px] rounded-full"
+                      src={user.profileImage}
+                      alt=""
+                    />
+                  </div>
+                )}
+              </div>
+            ))
+          ) : (
+            <p className="text-gray-500">
+              No messages yet. Start a conversation!
+            </p>
+          )}
         </div>
 
         {/* Message Input */}
@@ -207,7 +141,7 @@ const ChatComponent = () => {
             value={newMessage}
             onChange={(e) => setNewMessage(e.target.value)}
             placeholder="Write your message..."
-            className="flex-1 p-2 text-[18px]"
+            className="flex-1 p-2 text-[18px] w-14"
           />
           <button
             onClick={handleSendMessage}

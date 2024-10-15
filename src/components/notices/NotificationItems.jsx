@@ -1,6 +1,7 @@
 import React from "react";
 import NotificationItem from "./NotificationItem";
 import NotificationList from "./NotificationList";
+import EarlierList from "./EarlierList";
 
 const NotificationItems = () => {
   return (
@@ -12,6 +13,7 @@ const NotificationItems = () => {
       <div className="divider text-[#181818] text-[12px] mt-8">
         <span className="font-medium">Earlier</span>
       </div>
+      <EarlierList />
     </div>
   );
 };

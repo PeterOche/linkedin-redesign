@@ -79,7 +79,7 @@ const ProfileCard = ({ user }) => {
           <p className="text-[#181818] text-[14px] max-w-lg leading-[21px]">
             {user.occupation.title}, {user.occupation.description}
           </p>
-          <div className="py-6 flex space-x-4 items-center bg-white overflow-clip">
+          <div className="py-6 md:flex md:space-x-4 space-y-2 md:space-y-0 items-center bg-white overflow-clip">
             <BlueButton>CONTACT INFO</BlueButton>
 
             <TransparentBtn>{user.connections} Connections</TransparentBtn>

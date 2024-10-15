@@ -16,7 +16,10 @@ const JobsList = () => {
         <Card className="mb-4">
           <div className="p-2">
             <div className="">
-              <div key={index} className="flex space-x-4 items-start">
+              <div
+                key={index}
+                className="flex flex-col md:flex-row md:space-x-4 items-start"
+              >
                 {/* Company Logo */}
                 <img
                   src={exp.logo}
@@ -52,7 +55,10 @@ const JobsList = () => {
         <Card className="mb-4">
           <div className="p-2">
             <div className="">
-              <div key={index} className="flex space-x-4 items-start">
+              <div
+                key={index}
+                className="flex flex-col md:flex-row md:space-x-4 items-start"
+              >
                 {/* Company Logo */}
                 <img
                   src={exp.logo}

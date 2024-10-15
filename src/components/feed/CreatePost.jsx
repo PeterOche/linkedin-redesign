@@ -63,7 +63,7 @@ const CreatePost = () => {
             onChange={(e) => setPostText(e.target.value)}
           />
           <div className="flex items-center justify-between gap-8 mt-2">
-            <div className="flex justify-between gap-4 ">
+            <div className="hidden md:flex justify-between gap-4 ">
               <img src={linkVector} className="w-[24px] h-[24px] opacity-20" />
               <img src={imgVector} className="w-[24px] h-[24px] " />
               <img src={film} className="w-[24px] h-[24px] " />

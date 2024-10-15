@@ -17,11 +17,11 @@ const SkillsCard = () => {
 
   return (
     <Card>
-      <div className=" space-y-2">
+      <div className="space-y-2">
         <div>
           <h3 className="text-[18px] font-semibold">Skills & Endorsements</h3>
         </div>
-        <div className="grid grid-cols-3 gap-4">
+        <div className="md:grid grid-cols-3 gap-4">
           {displayedSkills.map((skill, index) => (
             <div key={index} className="border rounded-[6px] px-6 py-4 ">
               <div className="flex justify-between  text-[14px] leading-[21px]">

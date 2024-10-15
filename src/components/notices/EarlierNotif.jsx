@@ -1,9 +1,9 @@
 import React from "react";
 import moreHorizontal from "../../assets/more-horizontal.svg";
 
-const NotificationItem = ({ type, data, time }) => {
+const EarlierNotif = ({ type, data, time }) => {
   const renderIcons = () => {
-    if (type === "search") {
+    if (type === "interest") {
       return (
         <div className="relative mr-4">
           <img src={data.logo} alt="Logo 1" className="w-8 h-8 rounded-full" />
@@ -36,16 +36,12 @@ const NotificationItem = ({ type, data, time }) => {
 
   const renderContent = () => {
     switch (type) {
-      case "search":
-        return `You appeared in ${data.count} searches `;
-      case "profile":
+      case "interest":
+        return `We found jobs that you may be interested `;
+      case "views":
         return `${data[0].name} and ${
           data.length - 1
         } others viewed your profile`;
-      case "like":
-        return `${data[0].name} and ${
-          data.length - 1
-        } others liked your post "${data[0].postTitle}"`;
       default:
         return "New notification";
     }
@@ -55,9 +51,7 @@ const NotificationItem = ({ type, data, time }) => {
     <div className="flex justify-between items-center p-4 bg-white drop-shadow-sm rounded w-full mx-auto">
       {renderIcons()}
       <div className="ml-4 flex-1">
-        <p className="text-[14px]">
-          {renderContent()} <span className="font-extralight"> this week</span>
-        </p>
+        <p className="text-[14px]">{renderContent()}</p>
         <span className="text-[10px] text-gray-500">{time}</span>
       </div>
       <div>
@@ -67,4 +61,4 @@ const NotificationItem = ({ type, data, time }) => {
   );
 };
 
-export default NotificationItem;
+export default EarlierNotif;

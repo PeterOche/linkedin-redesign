@@ -6,7 +6,7 @@ import NotificationItems from "../components/notices/NotificationItems";
 
 const Notices = () => {
   return (
-    <div className="container lg:grid grid-cols-4 lg:gap-[40px] mx-auto px-8 md:px-24 mt-[40px]">
+    <div className="container lg:grid grid-cols-4 lg:gap-[40px] mx-auto px-8 md:px-24 mt-[40px] mb-12">
       <div className="">
         <NotificationCard />
         <StatCard />

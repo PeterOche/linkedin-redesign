@@ -5,8 +5,8 @@ import TransparentBtn from "./shared/TransparentBtn";
 
 const Footer = () => {
   return (
-    <footer class="bg-[#F7F9FB] py-8 border-t px-4 w-full">
-      <div class="container mx-auto flex flex-wrap justify-around items-center px-16">
+    <footer class="bg-[#F7F9FB] py-8 border-t px-4 max-w-full sm:px-8">
+      <div class="container mx-auto md:flex flex-wrap justify-around items-center px-16">
         {/* <!-- Logo Section --> */}
         <div class="flex  flex-col items-center space-y-2">
           <img src={logo} alt="LinkedIn Logo" class="h-[46px] w-[46px]" />
@@ -16,10 +16,10 @@ const Footer = () => {
         </div>
 
         {/* <!-- Navigation Links --> */}
-        <div class="flex  flex-wrap space-x-8 text-[12px]">
+        <div class="flex flex-wrap gap-8 text-[12px]">
           <div>
-            <h4 class="font-semibold  mb-2">Navigation</h4>
-            <ul class="space-y-1 mt-2 ">
+            <h4 class="font-semibold mt-3 md:mt-0 mb-2">Navigation</h4>
+            <ul class="space-y-1 mt-2">
               <li>
                 <a href="#" class="link link-hover">
                   About
@@ -43,7 +43,7 @@ const Footer = () => {
             </ul>
           </div>
           <div>
-            <ul class="space-y-1 mt-6">
+            <ul class="space-y-1 md:mt-6">
               <li>
                 <a href="#" class="link link-hover">
                   Talent Solutions
@@ -67,7 +67,7 @@ const Footer = () => {
             </ul>
           </div>
           <div>
-            <ul class="space-y-1 mt-6">
+            <ul class="space-y-1 md:mt-6">
               <li>
                 <a href="#" class="link link-hover">
                   Community Guidelines
@@ -95,9 +95,9 @@ const Footer = () => {
         </div>
 
         {/* <!-- Language Selector --> */}
-        <div class="flex flex-col space-y-2  ">
-          <h4 className="text-[12px] mb-2">Language</h4>
-          <select class="select select-bordered w-[270px] text-[12px] rounded ">
+        <div class="flex flex-col space-y-2 mt-8 ">
+          <h4 className="text-[12px]  mb-2">Language</h4>
+          <select class="select select-bordered md:w-[270px] text-[12px] rounded ">
             <option>ENGLISH</option>
             <option>SPANISH</option>
             <option>FRENCH</option>

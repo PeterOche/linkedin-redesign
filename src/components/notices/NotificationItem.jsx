@@ -56,7 +56,8 @@ const NotificationItem = ({ type, data, time }) => {
       {renderIcons()}
       <div className="ml-4 flex-1">
         <p className="text-[14px]">
-          {renderContent()} <span className="font-extralight"> this week</span>
+          {renderContent()}{" "}
+          <span className="font-thin text-gray-500"> this week</span>
         </p>
         <span className="text-[10px] text-gray-500">{time}</span>
       </div>
