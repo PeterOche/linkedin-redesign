@@ -2,10 +2,12 @@ import React from "react";
 import logo from "../assets/logo.svg";
 import BlueButton from "./shared/BlueButton";
 import TransparentBtn from "./shared/TransparentBtn";
+import help from "../assets/help-circle.svg";
+import settings from "../assets/settings.svg";
 
 const Footer = () => {
   return (
-    <footer class="bg-[#F7F9FB] py-8 border-t px-4 max-w-full sm:px-8">
+    <footer class="bg-[#F7F9FB] py-10  border-t px-4 max-w-full sm:px-8 mt-8">
       <div class="container mx-auto md:flex flex-wrap justify-around items-center px-16">
         {/* <!-- Logo Section --> */}
         <div class="flex  flex-col items-center space-y-2">
@@ -90,8 +92,12 @@ const Footer = () => {
         {/* <!-- Fast Access Buttons --> */}
         <div class="flex flex-col space-y-2 text-[12px]">
           <p>Fast Access</p>
-          <BlueButton>Questions?</BlueButton>
-          <TransparentBtn className="text-[#0275B1]">Settings</TransparentBtn>
+          <BlueButton className="flex items-center [12px] justify-between gap-8">
+            QUESTIONS? <img src={help} className="w-[16px] h-[16px]" />
+          </BlueButton>
+          <TransparentBtn className="text-[#0275B1] text-[12px] flex items-center justify-between gap-8">
+            SETTINGS <img src={settings} className="w-[16px] h-[16px]" />
+          </TransparentBtn>
         </div>
 
         {/* <!-- Language Selector --> */}

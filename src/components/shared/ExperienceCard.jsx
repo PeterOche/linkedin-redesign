@@ -8,7 +8,7 @@ const ExperienceCard = () => {
 
   return (
     <Card>
-      <div className="p-4">
+      <div className="lg:p-2">
         <h1 className="text-[18px] leading-[17px] font-bold mb-6">
           Experience
         </h1>

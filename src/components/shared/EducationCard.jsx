@@ -8,7 +8,7 @@ const EducationCard = () => {
 
   return (
     <Card>
-      <div className="p-4">
+      <div className="lg:p-2">
         <h1 className="text-[18px] leading-[17px] font-bold mb-6">Education</h1>
         <div className="space-y-8">
           <div className="flex space-x-4 items-start">
