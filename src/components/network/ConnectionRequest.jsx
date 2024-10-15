@@ -46,7 +46,7 @@ const ConnectionRequest = ({ visitors }) => {
             <div className="col-span-2 flex flex-col lg:flex-row justify-center lg:items-end gap-2">
               <BlueButton>Accept</BlueButton>
 
-              <TransparentBtn className="border-[#E7E7E7] text-[#E7E7E7] ">
+              <TransparentBtn className="border-[#E7E7E7] text-[#afa9a9] ">
                 Decline
               </TransparentBtn>
             </div>
