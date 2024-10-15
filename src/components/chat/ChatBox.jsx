@@ -72,7 +72,7 @@ const ChatComponent = () => {
             </div>
           ))}
         </div>
-        <Card className="mb-16 lg:mb-0">
+        <Card className="mb-8 lg:mb-0">
           <div className="text-[12px] mx-auto ">
             <BlueButton>START NEW CHAT</BlueButton>
           </div>
