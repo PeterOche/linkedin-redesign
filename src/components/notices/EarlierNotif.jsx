@@ -51,7 +51,12 @@ const EarlierNotif = ({ type, data, time }) => {
     <div className="flex justify-between items-center p-4 bg-white drop-shadow-sm rounded w-full mx-auto">
       {renderIcons()}
       <div className="ml-4 flex-1">
-        <p className="text-[14px]">{renderContent()}</p>
+        <p className="text-[14px] line-clamp-2">
+          {renderContent()}{" "}
+          {type === "views" && (
+            <span className="font-semibold">viewed your profile</span>
+          )}{" "}
+        </p>
         <span className="text-[10px] text-gray-500">{time}</span>
       </div>
       <div>

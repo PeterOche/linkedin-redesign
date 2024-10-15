@@ -48,7 +48,7 @@ export default function Navbar() {
               </NavLink>
 
               {/* Middle navigation links with icons */}
-              <div className="hidden lg:flex   justify-start items-center  space-x-2  h-full border-r-[1px] border-[#F4F4F4] ">
+              <div className="hidden lg:flex   justify-start items-center font-semibold space-x-2  h-full border-r-[1px] border-[#F4F4F4] ">
                 <NavLink
                   to="feed"
                   className={({ isActive }) =>

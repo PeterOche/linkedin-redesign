@@ -9,7 +9,7 @@ import hash from "../../assets/hash.svg";
 const LeftCard = () => {
   return (
     <div className="w-full lg:max-w-xs mb-4 bg-white rounded">
-      <ul className="menu py-4 text-[12px]">
+      <ul className="menu px-0 py-4 text-[12px]">
         <li className="flex justify-between items-center border-b py-2">
           <div className="flex w-full px-4 items-center justify-between">
             <div className="flex items-center gap-1">
@@ -52,7 +52,7 @@ const LeftCard = () => {
           <div className="flex w-full px-4 items-center justify-between">
             <div className="flex items-center gap-1">
               <img src={link} alt="" />
-              <span className="font-semibold">Pages</span>
+              <span className="font-semibold">PAGES</span>
             </div>
             <span className="font-bold">28</span>
           </div>

@@ -55,9 +55,9 @@ const NotificationItem = ({ type, data, time }) => {
     <div className="flex justify-between items-center p-4 bg-white drop-shadow-sm rounded w-full mx-auto">
       {renderIcons()}
       <div className="ml-4 flex-1">
-        <p className="text-[14px]">
+        <p className="text-[14px] font-semibold line-clamp-2">
           {renderContent()}{" "}
-          <span className="font-thin text-gray-500"> this week</span>
+          {type === "search" && <span className="font-light">this week</span>}{" "}
         </p>
         <span className="text-[10px] text-gray-500">{time}</span>
       </div>

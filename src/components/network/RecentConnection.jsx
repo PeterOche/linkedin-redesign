@@ -2,11 +2,11 @@ import React from "react";
 
 const RecentConnection = ({ visitors }) => {
   return (
-    <div className="md:grid grid-cols-2 relative bg-[#F7F9FB] rounded overflow-hidden mt-8 mb-4 p-6 gap-4 mx-auto">
+    <div className="md:grid grid-cols-2 relative bg-[#F7F9FB] rounded overflow-hidden mt-8 mb-2 p-6 gap-3 mx-auto">
       {visitors.map((visitor, index) => (
         <div
           key={index}
-          className="md:flex items-center justify-center bg-[#FFFFFF] p-5 rounded mb-3"
+          className="md:flex items-center justify-center bg-[#FFFFFF] p-5 rounded mb-3 md:mb-0 "
         >
           <img
             className="w-[52px] h-[52px] rounded-full mr-3"
