@@ -80,7 +80,7 @@ const ChatComponent = () => {
       </div>
 
       {/* Chat Window */}
-      <div className="col-span-3 flex-1 flex flex-col max-h-[595px] rounded bg-white mx-12">
+      <div className="col-span-3 flex-1 flex flex-col max-h-[595px] rounded bg-white lg:mx-12">
         {/* Chat Header */}
         <div className="flex flex-col md:flex-row flex-wrap justify-between items-center p-4 border-b border-gray-200">
           <h2 className="font-bold text-[12px]">

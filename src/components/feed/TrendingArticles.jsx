@@ -14,7 +14,7 @@ const TrendingArticles = ({ articles }) => {
         {displayedArticle.map((article, index) => (
           <li
             key={index}
-            className="flex bg-white rounded[6px] border border-[#F4F4F4] items-center  mb-3"
+            className="flex bg-white rounded[6px] border border-[#F4F4F4] items-center p-2  mb-3"
           >
             <img
               className="w-[80px] h-[52px]  mr-3"
@@ -22,7 +22,7 @@ const TrendingArticles = ({ articles }) => {
               alt={article.name}
             />
             <div>
-              <p className="relative text-[14px] font-bold text-[#181818] clamp-text">
+              <p className="relative text-[14px] font-bold text-[#181818] line-clamp-3">
                 {article.article}
               </p>
               <p className="text-[10px] font-light text-[#181818]">
