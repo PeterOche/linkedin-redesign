@@ -9,6 +9,12 @@ import Jobs from "./pages/Jobs";
 import Notices from "./pages/Notices";
 import Chat from "./pages/Chat";
 import Profile from "./pages/Profile";
+import AOS from "aos";
+import "aos/dist/aos.css"; // You can also use <link> for styles
+// ..
+AOS.init({
+  duration: 800,
+});
 
 const router = createBrowserRouter([
   {

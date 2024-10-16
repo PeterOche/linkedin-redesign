@@ -16,7 +16,14 @@ const PostList = ({ posts }) => {
       <SortBy handleSort={handleSort} />
       <div className="post-list">
         {posts.map((post) => (
-          <Post key={post._id} post={post} />
+          <div data-aos="fade-up" data-aos-anchor-placement="center-bottom">
+            <Post
+              data-aos="fade-up"
+              data-aos-anchor-placement="center-bottom"
+              key={post._id}
+              post={post}
+            />
+          </div>
         ))}
       </div>
     </div>

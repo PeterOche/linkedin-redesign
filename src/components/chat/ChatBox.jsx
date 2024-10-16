@@ -104,14 +104,20 @@ const ChatComponent = () => {
               >
                 {message.position === "left" ? (
                   <div className="chat chat-start">
-                    <div className="chat-bubble max-w-lg text-[14px] rounded-[4px] bg-[#0275B1] text-white">
+                    <div
+                      data-aos="flip-right"
+                      className="chat-bubble max-w-lg text-[14px] rounded-[4px] bg-[#0275B1] text-white"
+                    >
                       {message.text}
                     </div>
                   </div>
                 ) : (
                   <div className="flex justify-between gap-3">
                     <div>
-                      <div className="bg-[#E9F0F8] max-w-lg text-[#181818] p-3 text-[14px] rounded-lg ">
+                      <div
+                        data-aos="flip-left"
+                        className="bg-[#E9F0F8] max-w-lg text-[#181818] p-3 text-[14px] rounded-lg "
+                      >
                         <p>{message.text}</p>
                       </div>
                       <span className="flex justify-end text-xs text-gray-300 mt-1">
