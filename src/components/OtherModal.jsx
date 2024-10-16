@@ -23,12 +23,13 @@ const OtherModal = ({ isOpen, onClose }) => {
             {/* Close Button - Floating outside the modal */}
             <button
               onClick={onClose}
-              className="absolute top-4 left-[calc(100%-440px)] bg-white  p-2  "
+              className="absolute flex flex-col items-center top-4 left-[calc(100%-472px)] bg-white  p-2  "
             >
               <XMarkIcon
                 className="h-6 w-6 text-gray-400 hover:text-gray-500"
                 aria-hidden="true"
               />
+              CLOSE
             </button>
 
             {/* Modal Panel */}
@@ -41,11 +42,11 @@ const OtherModal = ({ isOpen, onClose }) => {
               leaveFrom="opacity-100 scale-100"
               leaveTo="opacity-0 scale-95"
             >
-              <Dialog.Panel className="w-full max-w-sm transform overflow-hidden  bg-white p-6 text-left align-middle shadow-xl transition-all relative">
+              <Dialog.Panel className="w-full max-w-sm transform overflow-hidden  bg-white p-6 text-left align-middle transition-all relative">
                 {/* Modal Header */}
                 <Dialog.Title
                   as="h3"
-                  className="text-lg font-medium leading-6 text-gray-900"
+                  className="text-[14px] font-medium leading-6 text-gray-900"
                 >
                   More from LinkedIn
                 </Dialog.Title>
@@ -53,9 +54,9 @@ const OtherModal = ({ isOpen, onClose }) => {
                 {/* Modal Body */}
                 <div className="mt-2">
                   {/* Learning with LinkedIn */}
-                  <div className="bg-[#0275B1] text-white p-3 rounded-md mb-4">
+                  <div className="bg-[#0275B1] text-[12px] text-white p-3 rounded-md mb-4">
                     <h4 className="font-semibold">Learning with LinkedIn</h4>
-                    <p className="text-sm">Courses, lectures, workshops</p>
+                    <p className="text-[10px]">Courses, lectures, workshops</p>
                   </div>
 
                   {/* Grid of buttons */}
@@ -70,7 +71,7 @@ const OtherModal = ({ isOpen, onClose }) => {
                     ].map((item) => (
                       <button
                         key={item}
-                        className="text-left text-sm font-medium text-gray-700"
+                        className="text-left text-[12px] font-medium text-[#181818]"
                       >
                         {item}
                       </button>
@@ -79,7 +80,9 @@ const OtherModal = ({ isOpen, onClose }) => {
 
                   {/* Business Services */}
                   <div className="mb-4">
-                    <h4 className="font-semibold mb-2">Business services</h4>
+                    <h4 className="font-semibold text-[14px] mb-2">
+                      Business services
+                    </h4>
                     {[
                       "Talent Solutions",
                       "Sales Solutions",
@@ -88,8 +91,8 @@ const OtherModal = ({ isOpen, onClose }) => {
                       "Learning Solutions",
                     ].map((service) => (
                       <div key={service} className="mb-2">
-                        <h5 className="font-medium text-sm">{service}</h5>
-                        <p className="text-xs text-gray-500">
+                        <h5 className="font-medium text-[12px]">{service}</h5>
+                        <p className="text-[10px] text-[#181818]">
                           {service === "Talent Solutions" &&
                             "Find, attract and recruit talent"}
                           {service === "Sales Solutions" &&
@@ -107,7 +110,7 @@ const OtherModal = ({ isOpen, onClose }) => {
 
                   {/* LinkedIn Premium */}
                   <button
-                    className="w-full text-white p-3 rounded-md font-semibold"
+                    className="w-full text-white p-3 rounded text-[12px] font-semibold"
                     style={{
                       background:
                         "linear-gradient(180deg, #D8C281 0%, #AC9B69 100%)",
