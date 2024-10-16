@@ -16,7 +16,7 @@ const SortBy = ({ handleSort }) => {
   };
 
   return (
-    <div className="py-4">
+    <div className="py-4 z-20">
       <div className="divider text-[#181818] text-[12px]">
         <span className="font-medium">SORT BY:</span>
         <div className="dropdown dropdown-end">
@@ -28,7 +28,7 @@ const SortBy = ({ handleSort }) => {
           </label>
           <ul
             tabIndex={0}
-            className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-40"
+            className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-40 z-40"
           >
             <li>
               <button onClick={() => handleSelection("TRENDING")}>
